@@ -1,5 +1,5 @@
 * {
-	/*outline: #BDBDBD 1px dotted;*/
+	/* outline: #BDBDBD 1px dotted; */
 }
 
 body {
@@ -11,6 +11,7 @@ body {
 	color: #585858;
 	margin-top: 75px;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 16pt;
 }
 
 #title {
@@ -21,7 +22,93 @@ body {
 	cursor: default;
 }
 
-table {
+#quiz {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+
+	text-align: center;
+	width: 450px;
+}
+
+#question, #choices li {
+/* 	padding-top: 10px;
+padding-bottom: 10px; */
+}
+
+#question {
+	font-size: 24pt;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#choices, #buttons {
+	padding-top: 10px;
+	padding-bottom: 15px;
+/* 	border-top: 1px solid #BDBDBD;
+border-bottom: 1px #BDBDBD; */
+
+}
+
+#choices li, #buttons li, #next {
+	font-size: 16pt;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/* border: 1px solid #BDBDBD; */
+}
+
+#next {
+	font-size: 24px;
+	position: absolute;
+	top: 215px;
+	right: 335px;
+	width: 100px;
+	background-color: white;
+}
+
+#buttons {
+	position: absolute;
+	top: 283px;
+	right: 335px;
+	width: 100px;
+	background-color: transparent;
+}
+
+#buttons li, #next {
+	/* border: 1px solid #BDBDBD; */
+	border-bottom: 1px solid #585858;
+	border-radius: 10px;
+	/* background-color: white; */
+}
+
+.highlighted {
+	background-color: #D8D8D8;
+}
+
+.selected {
+	background-color: #BDBDBD;
+}
+
+.correct {
+	background-color: #9AFE2E;
+}
+
+
+.incorrect {
+	background-color: #FA5858;
+}
+
+#progress {
+	
+}
+
+
+/* ************************************************** */
+
+/* table {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -100,7 +187,7 @@ tr:first-child td:nth-child(2) {
 	cursor: default;
 }
 
-#store-button:hover, .unchecked-box:hover, .checked-box:hover/*, .item-name:hover*/ {
+#store-button:hover, .unchecked-box:hover, .checked-box:hover, .item-name:hover {
 	opacity: 0.933;
 }
 
@@ -151,7 +238,11 @@ td:nth-child(3) {
 tr:last-child td {
 	height: 37px;
 	vertical-align: top;
-}
+} */
+
+
+/* ******************************************************************************* */
+
 
 /* * {
 	outline: #BDBDBD 1px dotted;
