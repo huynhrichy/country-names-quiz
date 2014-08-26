@@ -1,5 +1,5 @@
 * {
-	outline: #BDBDBD 1px dotted;
+	/*outline: #BDBDBD 1px dotted;*/
 }
 
 body {
@@ -7,13 +7,169 @@ body {
 }
 
 .main {
-	/*font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;*/
-	/*font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
-	/* font-family: Georgia, Times, "Times New Roman", serif; */
-	font-family: Cambria, Georgia, serif;
+	display: none;
+	color: #585858;
+	margin-top: 75px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-.question {
+#title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 48pt;
+	margin-bottom: 50px;
+	cursor: default;
+}
+
+table {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 16pt;
+}
+
+td {
+	padding: 6px;
+	vertical-align: middle;
+}
+
+tr:first-child td {
+	height: 50px;
+	vertical-align: bottom;
+}
+
+tr:first-child td:nth-child(3) {
+	padding-bottom: 17px;
+	padding-left: 6px;
+}
+
+tr:first-child td:nth-child(2) {
+	padding-bottom: 11px;
+	padding-left: 1px;
+	padding-right: 0px;
+}
+
+#enter-item-row:nth-child(1) {
+	height: 63px;
+}
+
+#item-box {
+	width: inherit;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 16pt;
+	color: #585858;
+}
+
+.store-button-no-items {
+	padding-top: 26px;
+}
+
+.item-box-no-items {
+	padding-top: 26px;
+}
+
+#store-button {
+	width: 25px;
+	height: 25px;
+	opacity: 0.75;
+	vertical-align: bottom;
+}
+
+.unchecked-box, .checked-box {
+	width: 20px;
+	height: 20px;
+	opacity: 0.725;
+}
+
+.unchecked-box:active, .checked-box:active {
+	opacity: 0.5;
+}
+
+.box-active {
+	opacity: 0.5;
+	background-color: red;
+	color: purple;
+}
+
+.item-name {
+	opacity: 0.75;
+	color: black;
+	cursor: default;
+}
+
+#store-button:hover, .unchecked-box:hover, .checked-box:hover/*, .item-name:hover*/ {
+	opacity: 0.933;
+}
+
+#store-button:active {
+	opacity: 0.7;
+}
+
+td:nth-child(1), td:nth-child(3) {
+
+	width: 36px;
+}
+
+td:nth-child(1) {
+	text-align: right;
+	padding-top: 8px;
+}
+
+.done td:nth-child(1) {
+	opacity: 0.67;
+}
+
+.delete-button {
+	width: 25px;
+	height: 25px;
+	opacity: 0.67;
+}
+
+td:nth-child(3) {
+	text-align: left;
+}
+
+.done td:nth-child(3) {
+	opacity: 0.7;
+}
+
+.delete-button:hover {
+	opacity: 0.85;
+}
+
+.delete-button:active {
+	opacity: 0.4;
+}
+
+.done td:nth-child(2) {
+	opacity: 0.5;
+}
+
+tr:last-child td {
+	height: 37px;
+	vertical-align: top;
+}
+
+/* * {
+	outline: #BDBDBD 1px dotted;
+} */
+
+/* body {
+	background-color: #E6E6E6;
+} */
+
+/* .main {
+	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	font-family: Cambria, Georgia, serif;
+} */
+
+/*.question {
 	color: #585858;
 	font-size: 56pt;
 }
+*/
