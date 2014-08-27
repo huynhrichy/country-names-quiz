@@ -16,21 +16,38 @@
 		<div id="quiz">
 			<div id="question">Which country below<br/>does not exist?</div>
 			<ul id="choices">
-				<li class="correct">Oceania</li>
-				<li class="selected">Brunei</li>
-				<li class="incorrect">Palau</li>
-				<li class="highlighted">Mauritania</li>
-			</ul>
+			<!-- 	<li class="correct">Oceania</li>
+			<li class="selected">Brunei</li>
+			<li class="incorrect">Palau</li>
+			<li class="highlighted">Mauritania</li> -->
 
-			<div id="next">Next</div>	
-		
-			<ul id="buttons">
-				<li class="correct">Correct!</li>
-				<li class="select">Select</li>
-				<li class="incorrect">Incorrect!</li>
-				<li class="highlighted">Select</li>
+				<li id="choice-1">Oceania</li>
+				<li id="choice-2">Brunei</li>
+				<li id="choice-3">Palau</li>
+				<li id="choice-4">Mauritania</li>				
 			</ul>
+		
+			<div id="popups">
+				<div id="next">Next</div>	
+			
+				<ul id="buttons">
+<!--
+			 		<li class="correct">Correct!</li>
+					<li class="select">Select</li>
+					<li class="incorrect">Incorrect!</li>
+					<li class="highlighted">Select</li> 
+					-->
+
+ 					<li id="button-1" class="select choice-1">Select</li>
+					<li id="button-2" class="select choice-2">Select</li>
+					<li id="button-3" class="select choice-3">Select</li>
+					<li id="button-4" class="select choice-4">Select</li>
+
+				</ul>				
 			</div>
+
+
+		</div>
 
 
 		<div id="progress">
@@ -46,54 +63,6 @@
 			<div class="remaining"></div>
 		</div>
 
-		</div>
-
-
-
-
-		<!-- <ul id="progress">
-			<li>li</li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul> -->
-
-
-
-
-	<!-- <div class="main">
-	
-	
-	
-	
-		<div class="question-area"
-			<h1 class="question">Whose superpowers are these?</h1>
-	
-			<div class="clues-area">
-				<ul class="clues">
-				
-					<li><img src="images/strength.jpg" alt=""></li>
-					<li><img src="images/flight.jpg" alt=""></li>
-					<li><img src="images/lasers.png" alt=""></li>
-					
-				</ul>
-			</div>			
-		</div> -->
-			<!-- <h1 class="question">To whom belong these superpowers?</h1> -->
-
-		<!-- <div class="choices-area">
-			<h2 class="your-guess">Your Guess:</h2>
-			<form class="choices">
-				<ol class="choices-list">
-					<li><input type="radio" name="choice" value="Batman">Batman</li>
-					<li><input type="radio" name="choice" value="Superman">Superman</li>
-					<li><input type="radio" name="choice" value="Spider-Man">Spider-Man</li>
-					<li><input type="radio" name="choice" value="Iron Man">Iron Man</li>
-				</ol>
-			</form>
-		</div> -->
-
-	<!-- </div>-->
+	</div>
 </body>
 </html>

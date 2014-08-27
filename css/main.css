@@ -58,6 +58,11 @@ border-bottom: 1px #BDBDBD; */
 	padding-top: 10px;
 	padding-bottom: 10px;
 	/* border: 1px solid #BDBDBD; */
+	cursor: pointer;
+}
+
+#choices li:hover {
+	/* background-color: #D8D8D8; */
 }
 
 .select, #next {
@@ -65,17 +70,45 @@ border-bottom: 1px #BDBDBD; */
 }
 
 #next, #buttons {
+	/* important!!! */
 	position: absolute;
 	/* right: 335px; */
 	/* right: 350px; */
 	right: 25.5%;
 	width: 100px;
+	/* display: none; */
+}
+
+#popups {
+	/* display: none; */
 }
 
 #next {
 	font-size: 24px;
 	top: 250px;
+	width: 100px;
 	background-color: white;
+	/* display: none; */
+}
+
+#button-1 {
+	/* display: none; */
+	top: 8px;
+}
+
+#button-2 {
+	/* display: none; */
+	top: 49px;
+}
+
+#button-3 {
+	/* display: none; */
+	top: 90px;
+}
+
+#button-4 {
+	/* display: none; */
+	top: 131px;
 }
 
 #buttons {
@@ -86,10 +119,13 @@ border-bottom: 1px #BDBDBD; */
 }
 
 #buttons li, #next {
-	 border: 1px solid #A4A4A4; 
+	 /* border: 1px solid #A4A4A4; */ 
 	/* border: 1px solid #585858; */
 	border-radius: 5px;
 	/* background-color: white; */ 
+	width: 100px;
+	position: absolute;
+	display: none;
 }
 
 #buttons li {
@@ -125,14 +161,16 @@ border-bottom: 1px #BDBDBD; */
 }
 
 #progress {
-	margin-top: 90px;
+	/* margin-top: 90px; */
+	margin-top: 20px;
 	background-color: transparent;
+	cursor: default;
 }
 
 #progress div {
 	display: inline-block;
 	border-radius: 3px;
-	border: 1px solid #A4A4A4;
+	/* border: 1px solid #A4A4A4; */
 	width: 25px;
 	height: 25px;
 	margin-right: 5px;
