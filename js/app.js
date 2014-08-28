@@ -1,7 +1,8 @@
-function Question(question, answer, choice2, choice3, choice4) {
+function Question(question, answer, choice0, choice1, choice2, choice3) {
 	this.question = question; // exists or dun exists... real or fake
+	//this.answer = answer;
+	this.choices = [choice1, choice2, choice3, choice4];
 	this.answer = answer;
-	this.choices = [answer, choice2, choice3, choice4];
 
 
 /*	this.choice1 = answer;
@@ -35,20 +36,20 @@ function newQuiz() {
 	// add questions - make question objects first... can randomly add them to questions array
 	// call nextquestion to get the first question in yo
 
-	var question1 = new Question("fake",
+	var question1 = new Question("fake", 0,
 		"Oceania", "Brunei", "Palau", "Mauritania");
 
-	var question2 = new Question("real",
-		"Djibouti", "Bangalla", "Gondor", "Narnia");
+	var question2 = new Question("real", 1,
+		"Bangalla", "Djibouti", "Gondor", "Narnia");
 
-	var question3 = new Question("fake",
-		"Bialya", "Comoros", "Comoros", "Tokelau");
+	var question3 = new Question("fake", 1,
+		"Comoros", "Bialya", "Comoros", "Tokelau");
 
-	var question4 = new Question("real",
-		"Cook Islands", "St. Georges Island", "San Seriffe", "Atlantis");
+	var question4 = new Question("real", 2,
+		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
 
-	var question5 = new Question("real",
-		"Tazbekistan", "Kyrgyzstan", "Uzbekistan", "Uzbekistan");	
+	var question5 = new Question("real", 3,
+		"Uzbekistan", "Kyrgyzstan", "Uzbekistan", "Tazbekistan");	
 
 	questions.push(question1);
 	questions.push(question2);
