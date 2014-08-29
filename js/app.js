@@ -101,19 +101,23 @@ function nextQuestion() {
 
 
 
+
+	// put all the choices in and just remember which one is the right one when submit guess
+
+/*
 	var randoms = [];
 	var random;
 
 	for (choice in currentQuestion.choices) {
 		console.log("choice: " + choice);
-
+*/
 		// while
 
 		/*
 		while (random in randoms) {
 			random = Math.floor((Math.random() * 4) + 1);
 		}*/
-
+/*
 		do {
 			random = Math.floor((Math.random() * 4) + 1);
 		} while (random in randoms);
@@ -144,7 +148,7 @@ function nextQuestion() {
 			randoms.push(random);
 		}
 	}
-
+*/
 
 
 
