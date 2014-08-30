@@ -1,7 +1,7 @@
 function Question(question, answer, choice0, choice1, choice2, choice3) {
 	this.question = question; // exists or dun exists... real or fake
 	//this.answer = answer;
-	this.choices = [choice1, choice2, choice3, choice4];
+	this.choices = [choice0, choice1, choice2, choice3];
 	this.answer = answer;
 
 
@@ -99,7 +99,10 @@ function nextQuestion() {
 	// randomize numbers from like 1 to 4
 
 
-
+	$("#choice-0").text(currentQuestion.choices[0]);
+	$("#choice-1").text(currentQuestion.choices[1]);
+	$("#choice-2").text(currentQuestion.choices[2]);
+	$("#choice-3").text(currentQuestion.choices[3]);
 
 
 	// put all the choices in and just remember which one is the right one when submit guess
@@ -204,6 +207,10 @@ $(document).ready(function() {
 		var id = $(this).attr("id");
 
 		switch(id) {
+			case "choice-0":
+				console.log(id);
+				$("#button-0").show();
+				break;
 			case "choice-1":
 				console.log(id);
 				$("#button-1").show();
@@ -215,10 +222,6 @@ $(document).ready(function() {
 			case "choice-3":
 				console.log(id);
 				$("#button-3").show();
-				break;
-			case "choice-4":
-				console.log(id);
-				$("#button-4").show();
 				break;
 			default:
 				console.log(id);
