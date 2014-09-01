@@ -19,6 +19,7 @@ var questions = [];
 var correct; // how many corrects so far
 //var incorrect;
 var guessed = false; // bool to make sure cant keep guessing after done so
+var progress = 0;
 
 // dry - use correct n questions array numbers extensively
 
@@ -57,6 +58,18 @@ function newQuiz() {
 	questions.push(question4);
 	questions.push(question5);
 
+	// progress ressettt
+	// all children in progress div
+	$("#progress").children().removeClass("incorrect");
+	$("#progress").children().removeClass("correct");
+	$("#progress").children().removeClass("current");
+
+	$("#progress").children().addClass("remaining");
+	$("#progress div:nth-child(1)").removeClass("remaining");
+	$("#progress div:nth-child(1)").addClass("current");
+
+	progress = 1;
+
 	nextQuestion();
 
 }
@@ -73,6 +86,7 @@ function nextQuestion() {
 	// delete the previous question before all this?!
 
 	guessed = false;
+	$("#choices li, #buttons li").css("cursor", "pointer");
 
 	// add in dat html doe... using questions - get first
 	// question first... with br/
@@ -103,6 +117,22 @@ function nextQuestion() {
 	$("#choice-1").text(currentQuestion.choices[1]);
 	$("#choice-2").text(currentQuestion.choices[2]);
 	$("#choice-3").text(currentQuestion.choices[3]);
+
+	// make ish say select instead of correct or incorrect!!!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	// put all the choices in and just remember which one is the right one when submit guess
@@ -159,20 +189,108 @@ function nextQuestion() {
 
 }
 
-function selectGuess() {
-	// when click on select
+function selectGuess(id) {
+	// when click on select of the choice
 	// check if clicked on the right select, via index (or can do text value)
 	// give feedback - show next button, update progress and correct or incorrect...
 	// give feedback - update selected answer class as well as button, possibly show correct one in green
 	// disable clicking - guessed = true
 
+	// check what was clicked. this thing in argument? 
+	// either parse string to get end number or just switch statement to compare
+	// compare with the question answer in the front of array
+	// if wrong, do a lot of ish - feedback, progress, next button n remove handlers on some ish
+	// if right... good feedback, progress, next button etc...
+	// kinda same with right n wrong, changes r like feedback, progress...
+	// REMEMBER REBINDING !!!! if ish not verkin
+
 	guessed = true;
+	$("#choices li, #buttons li").css("cursor", "default");
+	var guess;
+
+	// int for which choice was made so can compare with answord?
+
+	switch(id) {
+		case "button-0":
+			console.log("leggo");
+			guess = 0;
+			break;
+		case "button-1":
+			console.log("leggo");
+			guess = 1;
+			break;
+		case "button-2":
+			console.log("leggo");
+			guess = 2;
+			break;
+		case "button-3":
+			console.log("leggo");
+			guess = 3;
+			break;
+		default:
+	}
+
+	var currentProgress;
+
+	if (guess == questions[0].answer) {
+		console.log("rekt");
+
+		// rizzle
+
+
+		// selected button replaced with correct and in green
+		$("#" + id).addClass("correct");
+		$("#" + id).text("Correct!");
+
+
+		// update proggress - green instead of white or red
+		// do it somehow based on like the question number, or size of array
+		// need another variable... like the limit or actual current progress
+		//currentProgress = questions.length;
+		// perhaps just change the one white guy!!!! current. and on nextquestion, make white the next q
+
+		$(".current").addClass("correct");
+
+
+		// more correx
+		//correct++;
+	}
+	else {
+		// wrizzong
+
+		// correct doesnt go up
+
+		// update proggress - red instead of white or green
+		// do it somehow based on like the question number, or size of array
+		$(".current").addClass("incorrect");
+
+
+		// selected button replaced with incorrect and in red
+		$("#" + id).addClass("incorrect");
+		$("#" + id).text("Incorrect!");
+
+		// highlight chosen answer in red
+		$("#choice-" + guess).addClass("incorrect");
+
+
+	}
+
+
+	// highlight correct answer in green
+	$("#choice-" + questions[0].answer).addClass("correct");
+
+
+	// show next button
+	$("#next").show();
+	$("#next").addClass("normal");
+
+
+	$(".current").removeClass("current");
 }
 
 function finishQuiz() {
 //	progress = -1;
 }
-
 
 
 
@@ -189,51 +307,62 @@ $(document).ready(function() {
 		newQuiz();
 	});
 
+// if guessed == true then remove some of these handlerz
+
+
 	$("#choices li").mouseenter(function() {
 		// toggle class selected
 		//$(this).toggleClass("selected");
-
-		$(this).toggleClass("highlighted");
+		if (!guessed) 
+			$(this).toggleClass("highlighted");
 	}).mouseleave(function() {
-		$(this).toggleClass("highlighted");
+		if (!guessed) 
+			$(this).toggleClass("highlighted");
+		//$(this).removeClass("selected");
+	}).mousedown(function() {
+		if (!guessed) {
+			$("#choices").children().removeClass("selected");
+			$(this).addClass("selected");
+
+		}
+	}).mouseup(function() {
+		//$(this).removeClass("selected");
 	}).click(function() {
 		// rmbr to reset all selected ish
+		if (!guessed) {
+			$("#choices").children().removeClass("selected");
+			$("#buttons").children().hide();
 
-		$("#choices").children().removeClass("selected");
-		$("#buttons").children().hide();
+			$(this).toggleClass("selected");
 
-		$(this).toggleClass("selected");
+			var id = $(this).attr("id");
 
-		var id = $(this).attr("id");
-
-		switch(id) {
-			case "choice-0":
-				console.log(id);
-				$("#button-0").show();
-				break;
-			case "choice-1":
-				console.log(id);
-				$("#button-1").show();
-				break;
-			case "choice-2":
-				console.log(id);
-				$("#button-2").show();
-				break;
-			case "choice-3":
-				console.log(id);
-				$("#button-3").show();
-				break;
-			default:
-				console.log(id);
+			switch(id) {
+				case "choice-0":
+					console.log(id);
+					$("#button-0").show();
+					break;
+				case "choice-1":
+					console.log(id);
+					$("#button-1").show();
+					break;
+				case "choice-2":
+					console.log(id);
+					$("#button-2").show();
+					break;
+				case "choice-3":
+					console.log(id);
+					$("#button-3").show();
+					break;
+				default:
+					console.log(id);
+			}			
 		}
 
 
+
+
 		//var index = $(this).index();
-
-
-
-
-
 		//alert(index + 1);
 		//$("#buttons li").get(index).show();
 
@@ -246,4 +375,64 @@ $(document).ready(function() {
 		// get the number of...
 		// get this class and display all things with this class
 	});
+
+	$("#buttons li").mouseenter(function() {
+		if (!guessed) {
+		$(this).toggleClass("highlighted");
+		}
+	}).mouseleave(function() {
+		if (!guessed) {
+			$(this).toggleClass("highlighted");
+			$(this).removeClass("selected");
+
+		}
+	}).mousedown(function() {
+		if (!guessed)
+			$(this).addClass("selected");
+	}).mouseup(function() {
+		if (!guessed)
+			$(this).removeClass("selected");
+	}).click(function() {
+		if (!guessed) {
+			console.log("selected: " + $(this).attr("id"));
+			selectGuess($(this).attr("id"));
+
+		}
+	});
+
+	$("#button-0").click(function() {
+		//alert();
+		// check guess... 
+		// select guess, with this id
+
+		//selectGuess($(this).attr("id"));
+	});
+
+	$("#button-1").click(function() {
+		//alert();
+	});
+
+	$("#button-2").click(function() {
+		//alert();
+	});
+
+	$("#button-3").click(function() {
+		//alert();
+	});
+
+	$("#next ul li").mouseenter(function() {
+		//$(this).toggleClass("highlighted");
+		$("#next").toggleClass("highlighted");
+		//$("#next ul").toggleClass("highlighted");
+	}).mouseleave(function() {
+		$("#next").toggleClass("highlighted");
+		//$(this).toggleClass("highlighted");
+		//$(this).removeClass("selected");
+	}).mousedown(function() {
+		$("#next").addClass("selected");
+	}).mouseup(function() {
+		$("#next").removeClass("selected");
+	});
+
+
 });
