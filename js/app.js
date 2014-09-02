@@ -53,7 +53,7 @@ function newQuiz() {
 function nextQuestion() {
 	guessed = false;
 
-	$("#buttons li").removeClass("incorrect").removeClass("correct").text("Select").hide();
+	$("#buttons li").removeClass("incorrect").removeClass("correct").removeClass("highlighted").text("Select").hide();
 	$("#choices li").removeClass("incorrect").removeClass("correct").removeClass("selected");
 
 	if (questions.length === 0) {
@@ -128,7 +128,7 @@ function selectGuess(id) {
 	}
 
 	$("#choice-" + currentQuestion.answer).addClass("correct");
-	
+
 	if (questions.length === 0) {
 		$("#next ul li").text("Finish");
 	}
