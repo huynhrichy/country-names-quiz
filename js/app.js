@@ -20,6 +20,8 @@ var correct; // how many corrects so far
 //var incorrect;
 var guessed = false; // bool to make sure cant keep guessing after done so
 var progress = 0;
+var currentQuestion;
+var gameOver = false;
 
 // dry - use correct n questions array numbers extensively
 
@@ -27,6 +29,7 @@ function newQuiz() {
 	// aka newgame
 	// reset progress to 0
 //	progress = 0;
+	gameOver = false;
 	correct = 0;
 //	incorrect = 0;
 
@@ -37,6 +40,12 @@ function newQuiz() {
 	// add questions - make question objects first... can randomly add them to questions array
 	// call nextquestion to get the first question in yo
 
+
+
+
+	var question0 = new Question("real", 2,
+		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
+
 	var question1 = new Question("fake", 0,
 		"Oceania", "Brunei", "Palau", "Mauritania");
 
@@ -46,17 +55,19 @@ function newQuiz() {
 	var question3 = new Question("fake", 1,
 		"Comoros", "Bialya", "Comoros", "Tokelau");
 
-	var question4 = new Question("real", 2,
-		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
+	var question4 = new Question("real", 3,
+		"Tajikistan", "Kyrgyzstan", "Tazbekistan", "Uzbekistan");	
 
-	var question5 = new Question("real", 3,
-		"Uzbekistan", "Kyrgyzstan", "Uzbekistan", "Tazbekistan");	
+	questions.push(question0);
 
+	
 	questions.push(question1);
 	questions.push(question2);
 	questions.push(question3);
 	questions.push(question4);
-	questions.push(question5);
+	
+
+	$("#choice-0").removeClass("score");
 
 	// progress ressettt
 	// all children in progress div
@@ -65,10 +76,12 @@ function newQuiz() {
 	$("#progress").children().removeClass("current");
 
 	$("#progress").children().addClass("remaining");
-	$("#progress div:nth-child(1)").removeClass("remaining");
-	$("#progress div:nth-child(1)").addClass("current");
+	//$("#progress div:nth-child(1)").removeClass("remaining");
+	//$("#progress div:nth-child(1)").addClass("current");
 
 	progress = 1;
+
+	currentQuestion = null;
 
 	nextQuestion();
 
@@ -86,26 +99,59 @@ function nextQuestion() {
 	// delete the previous question before all this?!
 
 	guessed = false;
-	$("#choices li, #buttons li").css("cursor", "pointer");
+
+	// update all da ish
 
 	// add in dat html doe... using questions - get first
 	// question first... with br/
 
 	//$("#question").text("adfadf");
 
-	if (questions.length <= 0) {
-		finishQuiz();
+
+	$("#buttons li").removeClass("incorrect").removeClass("correct").text("Select").hide();
+	$("#choices li").removeClass("incorrect").removeClass("correct").removeClass("selected");
+
+
+	// order of action is important. check after or before question array pop?
+	if (questions.length === 0) {
+		finishQuiz(); // score kard. l8r
 		return;
 	}
+	else {
+		currentQuestion = questions.shift();
+	}
+
+	$("#next").hide();
+	$("#choices li, #buttons li").css("cursor", "pointer");
+
+	// dont shift if first q
+	// dont shift if... so max 5 q.... starts with 5 q...
+	// dont shift if 
+	//if (questions.length < 5) {
+//		questions.shift();
+//	}
+
+	// new system?
+	// if remaining questions, pop the current one and make it the currentquestion
+	// if no remaining questions, finish quiz
+
+	// css reset crap
+	$(".remaining").first().addClass("current");
+	$(".remaining").first().removeClass("remaining");
+
+
+	//$("#buttons li").removeClass("correct");
+	//$()
+
 
 	$("#question").remove();
 
-	var currentQuestion = questions[0];
+	//var currentQuestion = questions[0];
 
-	if (questions[0].question === "fake") {
+	if (currentQuestion.question === "fake") {
 		$("#quiz").prepend('<div id="question">Which country below<br/><b>does not</b> exist?</div>');
 	}
-	else if (questions[0].question === "real") {
+	else if (currentQuestion.question === "real") {
 		$("#quiz").prepend('<div id="question">Which country below<br/>actually <b>exists</b>?</div>');
 	}
 
@@ -120,7 +166,9 @@ function nextQuestion() {
 
 	// make ish say select instead of correct or incorrect!!!
 
-
+	// when to pop off the question?
+	// pop up after cuz need the answer ish yo... so like pop off before! 
+	// new issue. the first question. 
 
 
 
@@ -232,7 +280,7 @@ function selectGuess(id) {
 
 	var currentProgress;
 
-	if (guess == questions[0].answer) {
+	if (guess === currentQuestion.answer) {
 		console.log("rekt");
 
 		// rizzle
@@ -251,7 +299,7 @@ function selectGuess(id) {
 
 		$(".current").addClass("correct");
 
-
+		correct++;
 		// more correx
 		//correct++;
 	}
@@ -277,10 +325,14 @@ function selectGuess(id) {
 
 
 	// highlight correct answer in green
-	$("#choice-" + questions[0].answer).addClass("correct");
+	$("#choice-" + currentQuestion.answer).addClass("correct");
 
 
 	// show next button
+	if (questions.length === 0) {
+		$("#next ul li").text("Finish");
+	}
+
 	$("#next").show();
 	$("#next").addClass("normal");
 
@@ -290,20 +342,48 @@ function selectGuess(id) {
 
 function finishQuiz() {
 //	progress = -1;
+
+	// reset?
+	// 1. change finish button to restart (new quiz)
+	// 2. remove question text from quiz area
+	// 3. count score and show it (new css selector?)
+	// 4. 
+	// 5. 
+
+	gameOver = true;
+
+	$("#next ul li").text("Restart");
+	$("#choices li").text("");
+	$("#question").text("");
+
+
+	$("#choice-0").addClass("score").text("You got " + correct + " out of 5 correct!");
+/*
+	$("#question").text("");
+
+
+	$("#question").text("You got 4 out of 5 correct!");
+	$("#choice-0").text("You got 4 out of 5 correct!");
+*/
+	//$("#question").remove();
+
+	// math
+	//var score;
+
+
+	//$("#quiz").prepend('<div id="question"><br/><br/><br/>You got ' + correct + ' out of 5 correct!</div>');
+
+	//var currentQuestion = questions[0];
+
+	//if (currentQuestion.question === "fake") {
+	//}
 }
 
 
 
 
-
-
-
-
-
-
 $(document).ready(function() {
-	$(".main").fadeIn(1000, function() {
-
+	$(".main").fadeIn(10, function() {
 		newQuiz();
 	});
 
@@ -313,14 +393,14 @@ $(document).ready(function() {
 	$("#choices li").mouseenter(function() {
 		// toggle class selected
 		//$(this).toggleClass("selected");
-		if (!guessed) 
+		if (!guessed && !gameOver) 
 			$(this).toggleClass("highlighted");
 	}).mouseleave(function() {
-		if (!guessed) 
+		if (!guessed && !gameOver) 
 			$(this).toggleClass("highlighted");
 		//$(this).removeClass("selected");
 	}).mousedown(function() {
-		if (!guessed) {
+		if (!guessed && !gameOver) {
 			$("#choices").children().removeClass("selected");
 			$(this).addClass("selected");
 
@@ -378,7 +458,8 @@ $(document).ready(function() {
 
 	$("#buttons li").mouseenter(function() {
 		if (!guessed) {
-		$(this).toggleClass("highlighted");
+			//console.log("guessed is " + guessed + ", gameOver is " + gameOver);
+			$(this).toggleClass("highlighted");
 		}
 	}).mouseleave(function() {
 		if (!guessed) {
@@ -387,10 +468,10 @@ $(document).ready(function() {
 
 		}
 	}).mousedown(function() {
-		if (!guessed)
+		if (!guessed) 
 			$(this).addClass("selected");
 	}).mouseup(function() {
-		if (!guessed)
+		if (!guessed) 
 			$(this).removeClass("selected");
 	}).click(function() {
 		if (!guessed) {
@@ -432,6 +513,14 @@ $(document).ready(function() {
 		$("#next").addClass("selected");
 	}).mouseup(function() {
 		$("#next").removeClass("selected");
+	}).click(function() {
+		if (gameOver) {
+			newQuiz();
+
+		}
+		else {
+			nextQuestion();
+		}
 	});
 
 

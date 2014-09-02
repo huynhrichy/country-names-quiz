@@ -190,6 +190,10 @@ border-bottom: 1px #BDBDBD; */
 	margin-left: 5px;
 }
 
+#score {
+	font-weight: bold;
+}
+
 
 /* ************************************************** */
 
