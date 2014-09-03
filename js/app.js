@@ -17,8 +17,6 @@ function newQuiz() {
 	progress = 1;
 	currentQuestion = null;
 
-	var question0 = new Question("real", 2,
-		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
 
 	var question1 = new Question("fake", 0,
 		"Oceania", "Brunei", "Palau", "Mauritania");
@@ -29,7 +27,10 @@ function newQuiz() {
 	var question3 = new Question("fake", 1,
 		"Comoros", "Bialya", "Comoros", "Tokelau");
 
-	var question4 = new Question("real", 3,
+	var question0 = new Question("real", 2,
+		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
+
+	var question4 = new Question("fake", 2,
 		"Tajikistan", "Kyrgyzstan", "Tazbekistan", "Uzbekistan");	
 
 	questions.push(question0);
