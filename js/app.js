@@ -39,6 +39,12 @@ function newQuiz() {
 	questions.push(question3);
 	questions.push(question4);
 
+	// remove progress divs and make new ones for the amount of questions
+	$("#progress div").remove();
+	for (var i = 0; i < questions.length; i++) {
+		$("#progress").append("<div></div>")
+	}
+
 	$("#choice-0").removeClass("score");
 
 	$("#progress").children().removeClass("incorrect");
