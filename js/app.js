@@ -33,6 +33,9 @@ function newQuiz() {
 	var question4 = new Question("fake", 2,
 		"Tajikistan", "Kyrgyzstan", "Tazbekistan", "Uzbekistan");	
 
+	var question4 = new Question("real", 3,
+		"Matobo", "Qumar", "Genovia", "Lesotho");	
+
 	questions.push(question0);
 	questions.push(question1);
 	questions.push(question2);
