@@ -18,29 +18,34 @@ function newQuiz() {
 	currentQuestion = null;
 
 
-	var question1 = new Question("fake", 0,
+	var question0 = new Question("fake", 0,
 		"Oceania", "Brunei", "Palau", "Mauritania");
 
-	var question2 = new Question("real", 1,
+	var question1 = new Question("real", 1,
 		"Bangalla", "Djibouti", "Gondor", "Narnia");
 
-	var question3 = new Question("fake", 1,
+	var question2 = new Question("fake", 1,
 		"Comoros", "Bialya", "Comoros", "Tokelau");
 
-	var question0 = new Question("real", 2,
+	var question3 = new Question("real", 2,
 		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
 
 	var question4 = new Question("fake", 2,
 		"Tajikistan", "Kyrgyzstan", "Tazbekistan", "Uzbekistan");	
 
-	var question4 = new Question("real", 3,
+	var question5 = new Question("real", 3,
 		"Matobo", "Qumar", "Genovia", "Lesotho");	
+
+	var question6 = new Question("fake", 3,
+		"Vanuatu", "Burkina Faso", "Togo", "Panem");	
 
 	questions.push(question0);
 	questions.push(question1);
 	questions.push(question2);
 	questions.push(question3);
 	questions.push(question4);
+	questions.push(question5);
+	questions.push(question6);
 
 	// remove progress divs and make new ones for the amount of questions
 	$("#progress div").remove();
