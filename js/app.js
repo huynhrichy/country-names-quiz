@@ -10,12 +10,14 @@ var guessed = false;
 var progress = 0;
 var currentQuestion;
 var gameOver = false;
+var totalQuestions = 0;
 
 function newQuiz() {
 	gameOver = false;
 	correct = 0;
 	progress = 1;
 	currentQuestion = null;
+	totalQuestions = 0;
 
 
 	var question0 = new Question("fake", 0,
@@ -51,6 +53,7 @@ function newQuiz() {
 	$("#progress div").remove();
 	for (var i = 0; i < questions.length; i++) {
 		$("#progress").append("<div></div>")
+		totalQuestions++;
 	}
 
 	$("#choice-0").removeClass("score");
@@ -162,7 +165,7 @@ function finishQuiz() {
 	$("#choices li").text("");
 	$("#question").text("");
 
-	$("#choice-0").addClass("score").text("You got " + correct + " out of 5 correct!");
+	$("#choice-0").addClass("score").text("You got " + correct + " out of " + totalQuestions + " correct!");
 }
 
 $(document).ready(function() {
