@@ -20,6 +20,9 @@ function newQuiz() {
 	totalQuestions = 0;
 
 
+	$("#next ul li").text("Next");
+
+
 	var question0 = new Question("fake", 0,
 		"Oceania", "Brunei", "Palau", "Mauritania");
 
