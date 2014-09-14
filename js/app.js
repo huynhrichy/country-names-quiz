@@ -30,7 +30,7 @@ function newQuiz() {
 		"Bangalla", "Djibouti", "Gondor", "Narnia");
 
 	var question2 = new Question("fake", 1,
-		"Comoros", "Bialya", "Comoros", "Tokelau");
+		"Comoros", "Bialya", "Brazil", "Tokelau");
 
 	var question3 = new Question("real", 2,
 		"San Seriffe", "St. Georges Island", "Cook Islands", "Atlantis");
