@@ -42,7 +42,10 @@ function newQuiz() {
 		"Matobo", "Qumar", "Genovia", "Lesotho");	
 
 	var question6 = new Question("fake", 3,
-		"Vanuatu", "Burkina Faso", "Togo", "Panem");	
+		"Vanuatu", "Burkina Faso", "Togo", "Panem");
+
+	var question7 = new Question("real", 0,
+		"Kiribati", "Tosau", "Genosha", "Florin");		
 
 	questions.push(question0);
 	questions.push(question1);
