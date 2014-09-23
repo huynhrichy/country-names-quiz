@@ -47,6 +47,9 @@ function newQuiz() {
 	var question7 = new Question("real", 0,
 		"Kiribati", "Tosau", "Genosha", "Florin");		
 
+	var question8 = new Question("fake", 3,
+		"Jordan", "Nepal", "Qatar", "Brungaria");		
+
 	questions.push(question0);
 	questions.push(question1);
 	questions.push(question2);
@@ -54,6 +57,8 @@ function newQuiz() {
 	questions.push(question4);
 	questions.push(question5);
 	questions.push(question6);
+	questions.push(question7);
+	questions.push(question8);
 
 	// remove progress divs and make new ones for the amount of questions
 	$("#progress div").remove();
