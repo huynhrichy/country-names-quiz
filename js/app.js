@@ -256,12 +256,7 @@ $(document).ready(function() {
 	}).mouseup(function() {
 		$("#next").removeClass("selected");
 	}).click(function() {
-		if (gameOver) {
-			newQuiz();
-		}
-		else {
-			nextQuestion();
-		}
+		gameOver ? newQuiz() : nextQuestion();
 	});
 
 });
